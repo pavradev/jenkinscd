@@ -2,8 +2,13 @@ import jenkins.model.*;
 import hudson.model.FreeStyleProject;
 import hudson.tasks.Shell;
 import javaposse.jobdsl.plugin.*;
+import hudson.plugins.git.*;
 
 project = Jenkins.instance.createProject(FreeStyleProject, "seed")
+
+gitSCM = new GitSCM("https://github.com/pavradev/jenkinscd.git")
+
+project.setScm(gitSCM)
 
 project.getBuildersList().clear()
 
