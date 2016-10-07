@@ -8,7 +8,7 @@ project = Jenkins.instance.createProject(FreeStyleProject, "seed")
 project.getBuildersList().clear()
 
 project.getBuildersList().add(new ExecuteDslScripts(
-  new ExecuteDslScripts.ScriptLocation("false","dsl/**/*.groovy",null),
+  new ExecuteDslScripts.ScriptLocation("false","dsl/seed/*.groovy",null),
   false,
   RemovedJobAction.DELETE,
   RemovedViewAction.DELETE,

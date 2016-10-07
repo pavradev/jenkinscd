@@ -5,6 +5,7 @@ import javaposse.jobdsl.dsl.Job
 
 job('DSL-Tutorial-1-Test') {
     steps {
-        shell('echo "Hello world!"')
+        shell("echo ${REPO} ${BRANCH}")
     }
 }
+queue('DSL-Tutorial-1-Test')
