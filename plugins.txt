@@ -111,3 +111,4 @@ workflow-multibranch 2.9
 workflow-scm-step 2.2
 workflow-step-api 2.4
 workflow-support 2.8
+gradle 1.25
