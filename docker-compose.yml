@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jenkins:
+    build:
+      context: docker/
+    ports:
+      - "8080:8080"
+    #tty: true
+    privileged: true
+    volumes:
+      #- ./docker/jenkins/credentials.xml:/var/jenkins_home/credentials.xml:ro
+      - ./docker/jenkins/seed.groovy:/usr/share/jenkins/ref/init.groovy.d/seed.groovy:ro
+      - .:/var/jenkins_home/workspace/seed:ro
