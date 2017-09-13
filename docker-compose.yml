@@ -8,6 +8,12 @@ services:
     #tty: true
     privileged: true
     volumes:
-      #- ./docker/jenkins/credentials.xml:/var/jenkins_home/credentials.xml:ro
-      - ./docker/jenkins/seed.groovy:/usr/share/jenkins/ref/init.groovy.d/seed.groovy:ro
-      - .:/var/jenkins_home/workspace/seed:ro
+      # Mound docker socket
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Mound seed workspace
+      # Makes workspace own by root ((
+      #- .:/var/jenkins_home/workspace/seed:ro
+    environment:
+      - HOST_HOME=$HOME
+#volumes:
+#  jenkinshome: {}

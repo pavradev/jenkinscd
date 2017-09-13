@@ -3,25 +3,27 @@ apply plugin: "groovy"
 description = "Jenkins in docker with dsl and pipeline"
 
 sourceSets {
-  jobs {
-    groovy {
-      srcDirs 'dsl'
+    jobs {
+        groovy {
+            srcDirs 'dsl'
+        }
     }
-  }
 }
 
 repositories {
-  maven { url 'http://repo.jenkins-ci.org/releases/' }
-  mavenCentral()
+    maven { url 'http://repo.jenkins-ci.org/releases/' }
+    mavenCentral()
+    jcenter()
 }
 
 dependencies {
-  compile 'org.codehaus.groovy:groovy-all:2.4.7'
-  compile "org.jenkins-ci.plugins:job-dsl-core:1.65"
-
-  testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    compile 'org.jenkins-ci.plugins:job-dsl-core:1.65'
+    compile 'de.gesellix:docker-client:2017-08-28T08-23-24'
+    compile 'org.jenkins-ci.main:jenkins-core:2.19.1'
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '4.1'
+    gradleVersion = '4.1'
 }

@@ -1,4 +1,5 @@
 String safeJobName = "$repoName".replaceAll("/", "-")
+
 pipelineJob(safeJobName) {
     scm {
         github "$repoName"
@@ -8,7 +9,7 @@ pipelineJob(safeJobName) {
             scm {
                 github "$repoName"
             }
-            scriptPath('pipeline.groovy')
+            scriptPath('Jenkinsfile')
         }
     }
 }
