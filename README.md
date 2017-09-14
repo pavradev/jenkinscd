@@ -1,6 +1,14 @@
-# jenkinscd
+# Build the project
 
-# Trigger job build
+Initial build setup:
+`docker run --rm -v "$PWD":/project -w /project --name gradle gradle:alpine gradle wrapper`
+
+Build:
+`./gradlew build`
+
+See more here: https://hub.docker.com/_/gradle/
+
+# Trigger Jenkins job build
 
 1. Create new user (e.g. `webhook`) with the following permissions: `Overall > Read`, `Job > Build`, `Job > Read` & `Job > Workspace`. Login as the user and get their API token
 2. Under a job, enable "Trigger Builds Remotely" and set an authentication token
